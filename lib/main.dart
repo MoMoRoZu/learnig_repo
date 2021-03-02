@@ -23,33 +23,19 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
+    const questions = [
+      //const = compile time constant
       {
         'questionText': 'What\'s your favourite color?',
-        'answers': [
-          'Black',
-          'Red',
-          'Green',
-          'White'
-        ],
+        'answers': ['Black', 'Red', 'Green', 'White'],
       },
       {
         'questionText': "What's your favourite animal?",
-        'answers': [
-          'Rabbit',
-          'Snake',
-          'Elephant',
-          'Lion'
-        ],
+        'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
       },
       {
         'questionText': "What's your favourite language?",
-        'answers': [
-          'C',
-          'Kotlin',
-          'Flutter',
-          'Java'
-        ],
+        'answers': ['C', 'Kotlin', 'Flutter', 'Java'],
       }
     ];
 
@@ -58,9 +44,13 @@ class _MyAppState extends State<MyApp> {
           appBar: AppBar(title: Text("My First App")),
           body: Column(
             children: [
-              Question(questions[_questionIndex]['questionText']), //Text Question on top
-              ...(questions[_questionIndex]['answers'] as List<String>).map((answer) { // ... insert all the values of a list into another list
-                return Answer(_answerQuestion, answer); // map transform that list into widget & generate new list based on old list
+              Question(questions[_questionIndex]
+                  ['questionText']), //Text Question on top
+              ...(questions[_questionIndex]['answers'] as List<String>)
+                  .map((answer) {
+                // ... insert all the values of a list into another list
+                return Answer(_answerQuestion,
+                    answer); // map transform that list into widget & generate new list based on old list
               }).toList() //convert the value map give us to a list
             ],
           )),
